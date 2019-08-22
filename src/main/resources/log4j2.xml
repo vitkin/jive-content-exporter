@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info">
+  <Appenders>
+    <!--<RollingFile name="file"
+                 fileName="${sys:catalina.base}/logs/myapp.log"
+                 filePattern="${sys:catalina.base}/logs/myapp-$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+        <PatternLayout pattern="%highlight{%date %level [%t] %logger{1.} - %msg%n%throwable}"/>
+        <Policies>
+            <TimeBasedTriggeringPolicy />
+            <SizeBasedTriggeringPolicy size="5 MB"/>
+        </Policies>
+        <DefaultRolloverStrategy max="10"/>
+    </RollingFile>-->
+    <Console name="stdout"
+                 target="SYSTEM_OUT">
+      <PatternLayout pattern="%highlight{%date %level [%t] %logger{1.} - %msg%n%throwable}"/>
+    </Console>
+  </Appenders>
+  <Loggers>
+    <Logger name="io.github.vitkin.jive.content.exporter" level="info" additivity="false">
+      <AppenderRef ref="stdout"/>
+      <!--<AppenderRef ref="file"/>-->
+    </Logger>
+    <Root level="info">
+      <AppenderRef ref="stdout"/>
+      <!--<AppenderRef ref="file"/>-->
+    </Root>
+  </Loggers>
+</Configuration>

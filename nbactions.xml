@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+  <action>
+    <actionName>run</actionName>
+    <packagings>
+      <packaging>jar</packaging>
+    </packagings>
+    <goals>
+      <goal>process-classes</goal>
+      <goal>org.codehaus.mojo:exec-maven-plugin:1.5.0:exec</goal>
+    </goals>
+    <properties>
+      <exec.args>-Djive-content-exporter.config.path=${project.basedir}/etc/jive-content-exporter/config.properties  -Djive-content-exporter.credentials.path=${project.basedir}/etc/jive-content-exporter/credentials.properties  -Djive-content-exporter.export.path=${project.basedir}/var/jive-content-exporter  -Djive-content-exporter.userId=${jive-content-exporter.userId}  -Djive-content-exporter.password=${jive-content-exporter.password}  -Dorg.apache.logging.log4j.simplelog.StatusLogger.level=ERROR -classpath %classpath io.github.vitkin.jive.content.exporter.Main</exec.args>
+      <exec.executable>java</exec.executable>
+    </properties>
+  </action>
+  <action>
+    <actionName>debug</actionName>
+    <packagings>
+      <packaging>jar</packaging>
+    </packagings>
+    <goals>
+      <goal>process-classes</goal>
+      <goal>org.codehaus.mojo:exec-maven-plugin:1.5.0:exec</goal>
+    </goals>
+    <properties>
+      <exec.args>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address} -Djive-content-exporter.config.path=${project.basedir}/etc/jive-content-exporter/config.properties  -Djive-content-exporter.credentials.path=${project.basedir}/etc/jive-content-exporter/credentials.properties  -Djive-content-exporter.export.path=${project.basedir}/var/jive-content-exporter  -Djive-content-exporter.userId=${jive-content-exporter.userId}  -Djive-content-exporter.password=${jive-content-exporter.password}  -Dorg.apache.logging.log4j.simplelog.StatusLogger.level=ERROR -classpath %classpath io.github.vitkin.jive.content.exporter.Main</exec.args>
+      <exec.executable>java</exec.executable>
+      <jpda.listen>true</jpda.listen>
+    </properties>
+  </action>
+  <action>
+    <actionName>profile</actionName>
+    <packagings>
+      <packaging>jar</packaging>
+    </packagings>
+    <goals>
+      <goal>process-classes</goal>
+      <goal>org.codehaus.mojo:exec-maven-plugin:1.5.0:exec</goal>
+    </goals>
+    <properties>
+      <exec.args>-Djive-content-exporter.config.path=${project.basedir}/etc/jive-content-exporter/config.properties  -Djive-content-exporter.credentials.path=${project.basedir}/etc/jive-content-exporter/credentials.properties  -Djive-content-exporter.export.path=${project.basedir}/var/jive-content-exporter  -Djive-content-exporter.userId=${jive-content-exporter.userId}  -Djive-content-exporter.password=${jive-content-exporter.password}  -Dorg.apache.logging.log4j.simplelog.StatusLogger.level=ERROR -classpath %classpath io.github.vitkin.jive.content.exporter.Main</exec.args>
+      <exec.executable>java</exec.executable>
+    </properties>
+  </action>
+</actions>
